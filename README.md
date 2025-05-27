@@ -81,7 +81,23 @@ curl.exe http://localhost:5000/api/hvac/status
 
 ---
 
-## Design Choices & Rationale
+## Design Choices
+
+- The first choice I made was to choose Python, my main reason for choosing python in this project and others in its quicker to build with and quickly prototype core features. The other reason is the really large communnity across, stack overflow, discord, reddit, there always people who would faced the same problems you are facing even if the implementation is not exactly the same the concept will be.
+
+Python is also very popular in IoT and coupled with paho-mqtt client library, you cant go wrong
+
+- For my API end points I chose to use the flask_restful package/library due to its extensive amount of api methods
+
+- Breaking up the app into modules to follow best practices and it makes debugging much easier than trying to find an issue in a single code base with 1000 lines of code. Its easier to scale and maintain as well.
+
+- Error handling and Retires all done in the middleware, easier debugging.
+
+## Challenges I faced
+
+- One of the challenges I faced was how to ensure that the the simulation will be able to simulate all temperatures at the same time , then I ran into a silution to use threading which will separate each actuator into its "own thread" and the it will communicate with its sensor independently.
+
+- Most of the other challenges were python imports and could be resolved, especially the middleware service. Soultin: To make sure that python resolves package imports you need to use the -m flag from project root.
 
 ---
 
