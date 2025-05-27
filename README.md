@@ -63,7 +63,7 @@ To open CMD:
 1. Windows + R
 2. Click Enter
 
-### Run the following
+### Run the following (CMD)
 
 mosquitto_pub -h localhost -t building/room1/temperature -m 40
 
@@ -72,7 +72,7 @@ mosquitto_pub -h localhost -t building/room1/temperature -m 40
 ## Testing the API
 
 ### With authentication
-
+In Powershell:
 curl.exe -u COOiLabs:123456 http://localhost:5000/api/hvac/status
 
 ### Without authentication (should fail if you don't add the authentication properly)
