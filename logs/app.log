@@ -1,0 +1,10 @@
+2025-05-27 15:01:11 INFO [smart_iot] Middleware service started and subscribed to temperature topics.
+2025-05-27 15:08:22 INFO [smart_iot] Received temperature 32.5°C from room1
+2025-05-27 15:08:22 INFO [smart_iot] Temperature 32.5°C in room1 exceeds threshold. Activating HVAC.
+2025-05-27 15:08:26 ERROR [smart_iot] Failed to send HVAC command 'activate': HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/hvac/command (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000028F77481400>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-05-27 15:23:37 INFO [smart_iot] Received temperature 27.4°C from room1
+2025-05-27 15:23:37 INFO [smart_iot] Temperature 27.4°C in room1 below threshold. Deactivating HVAC.
+2025-05-27 15:23:39 INFO [smart_iot] Sent HVAC command: deactivate
+2025-05-27 15:25:33 INFO [smart_iot] Received temperature 32.5°C from room1
+2025-05-27 15:25:33 INFO [smart_iot] Temperature 32.5°C in room1 exceeds threshold. Activating HVAC.
+2025-05-27 15:25:36 INFO [smart_iot] Sent HVAC command: activate
