@@ -112,6 +112,8 @@ Python is also very popular in IoT and coupled with paho-mqtt client library, yo
 
 ## Future Improvements
 
+- Beautiful Dashboard !
+
 # My Journey
 
 ## This section was just out of interest on milestones I set for myself after breaking the project down. In no particular order...My project checkpoints :)
