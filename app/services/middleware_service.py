@@ -1,6 +1,7 @@
 import json
 import logging
 import requests
+import time
 from paho.mqtt import client as mqtt_client
 from app.utils.logger import logger
 
@@ -12,22 +13,35 @@ client_id = "middleware_service"
 legacy_api_base_url = "http://localhost:5000/api/hvac"
 
 
-def send_hvac_command(command):
+def send_hvac_command(command, retries=3, delay=2):
     url = f"{legacy_api_base_url}/command"
     payload = {"command": command}
-    auth = ("COOiLabs", "123456")  # Same credentials as in the legacy API
-    try:
-        response = requests.post(url, json=payload, auth=auth)
-        response.raise_for_status()
-        logger.info(f"Sent HVAC command: {command}")
-    except requests.RequestException as e:
-        logger.error(f"Failed to send HVAC command '{command}': {e}")
+    auth = ("COOiLabs", "123456")  # Use your actual credentials
+    for attempt in range(1, retries + 1):
+        try:
+            response = requests.post(url, json=payload, auth=auth, timeout=5)
+            response.raise_for_status()
+            logger.info(f"Sent HVAC command: {command}")
+            return True
+        except requests.RequestException as e:
+            logger.error(
+                f"Attempt {attempt} failed to send HVAC command '{command}': {e}"
+            )
+            time.sleep(delay * attempt)  # Exponential backoff
+    logger.error(f"All {retries} attempts failed to send HVAC command '{command}'")
+    return False
 
 
 def on_message(client, userdata, msg):
     try:
         payload = msg.payload.decode()
         temperature = float(payload)
+        if not (-50 <= temperature <= 100):
+            logger.warning(
+                f"Received out-of-range temperature {temperature}°C from {msg.topic}"
+            )
+            return
+
         topic_parts = msg.topic.split("/")
         room = topic_parts[1]
 
@@ -44,8 +58,12 @@ def on_message(client, userdata, msg):
             )
             send_hvac_command("deactivate")
 
+    except ValueError:
+        logger.warning(
+            f"Thats not a proper temperature value, recieved from: {msg.topic}: {msg.payload}"
+        )
     except Exception as e:
-        logger.error(f"Error processing message from topic {msg.topic}: {e}")
+        logger.error(f"Error processing message from {msg.topic}: {e}")
 
 
 def connect_mqtt():
