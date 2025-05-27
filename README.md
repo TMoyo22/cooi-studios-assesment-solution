@@ -13,20 +13,7 @@ This project implements a middleware service for a smart building IoT system tha
 
 ## Project Structure
 
-COOI-STUDIOS-ASSESMENT/
-├── app/
-│ ├── init.py
-│ ├── config.py
-│ ├── mqtt_client.py
-│ ├── legacy_api.py
-│ ├── routes/
-│ ├── services/
-│ │ ├── middleware_service.py
-│ ├── utils/
-│ └── logger.py # Centralized logging setup
-├── run.py # Entry point for legacy HVAC API
-├── requirements.txt
-└── README.md
+The project is set up in modules, to separate the api handling, services and middleware into modules
 
 ---
 
