@@ -8,3 +8,13 @@
 2025-05-27 15:25:33 INFO [smart_iot] Received temperature 32.5°C from room1
 2025-05-27 15:25:33 INFO [smart_iot] Temperature 32.5°C in room1 exceeds threshold. Activating HVAC.
 2025-05-27 15:25:36 INFO [smart_iot] Sent HVAC command: activate
+2025-05-27 17:42:24 INFO [smart_iot] Middleware service started and subscribed to temperature topics.
+2025-05-27 17:42:39 INFO [smart_iot] Received temperature 32.5°C from room1
+2025-05-27 17:42:39 INFO [smart_iot] Temperature 32.5°C in room1 exceeds threshold. Activating HVAC.
+2025-05-27 17:42:42 ERROR [smart_iot] Failed to send HVAC command 'activate': 401 Client Error: UNAUTHORIZED for url: http://localhost:5000/api/hvac/command
+2025-05-27 17:45:40 INFO [smart_iot] Received temperature 32.5°C from room1
+2025-05-27 17:45:40 INFO [smart_iot] Temperature 32.5°C in room1 exceeds threshold. Activating HVAC.
+2025-05-27 17:45:42 ERROR [smart_iot] Failed to send HVAC command 'activate': 401 Client Error: UNAUTHORIZED for url: http://localhost:5000/api/hvac/command
+2025-05-27 17:51:40 INFO [smart_iot] Received temperature 32.5°C from room1
+2025-05-27 17:51:40 INFO [smart_iot] Temperature 32.5°C in room1 exceeds threshold. Activating HVAC.
+2025-05-27 17:51:42 ERROR [smart_iot] Failed to send HVAC command 'activate': 401 Client Error: UNAUTHORIZED for url: http://localhost:5000/api/hvac/command

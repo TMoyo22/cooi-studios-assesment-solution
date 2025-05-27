@@ -15,8 +15,9 @@ legacy_api_base_url = "http://localhost:5000/api/hvac"
 def send_hvac_command(command):
     url = f"{legacy_api_base_url}/command"
     payload = {"command": command}
+    auth = ("COOiLabs", "123456")  # Same credentials as in the legacy API
     try:
-        response = requests.post(url, json=payload)
+        response = requests.post(url, json=payload, auth=auth)
         response.raise_for_status()
         logger.info(f"Sent HVAC command: {command}")
     except requests.RequestException as e:
