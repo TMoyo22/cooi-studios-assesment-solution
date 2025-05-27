@@ -13,7 +13,7 @@ This project implements a middleware service for a smart building IoT system tha
 
 ## Project Structure
 
-The project is set up in modules, to separate the api handling, services and middleware into modules
+The project is set up to separate the api handling, services and middleware into modules under the app/ dir.
 
 ---
 
