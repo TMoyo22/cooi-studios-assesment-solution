@@ -123,7 +123,7 @@ Shows the Mosquitto MQTT broker running locally and ready to accept connections.
 Mosquitto MQTT Broker Running and Publishing/Receiving Data
 This image demonstrates the Mosquitto broker running, with successful subscription and message publishing using the mosquitto_pub and mosquitto_sub commands.
 
-![Image](https://github.com/user-attachments/assets/4367826d-2935-4b4c-9e79-7af61f8003bc)
+![Image](https://github.com/user-attachments/assets/74b79c8b-3cae-4cfb-bd10-254c3a87c60d)
 
 4. Temperature Data Received by Middleware
    Demonstrates temperature data being sent to the middleware and the middleware logging the received values and actions.
