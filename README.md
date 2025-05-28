@@ -74,11 +74,15 @@ curl.exe http://localhost:5000/api/hvac/status
 
 Python is also very popular in IoT and coupled with paho-mqtt client library, you cant go wrong
 
-- For my API end points I chose to use the flask_restful package/library due to its extensive amount of api methods
+- Why MQTT? => MQTT is a lightweight protocol that is designed for low-bandwidth networks making it suitable for this type of IoT enviroment, I chose Mosquitto beacuse it is open source and it manages its messaging well between IoT nodes. Messaging via MQTT allows for near real-time delivery which is important for this use-case of controlling an HVAC system from temperature readings. Since it can run on a physical board (e.g microcontroller) locally and not only on server it allows us to have decision making occur at the edge for real-time feedback without sending data to the cloud first for it to be processed there, which would introduce greater latency.
+
+- REST APIs are stateless making them ideal for this use case. Stateless refers to a request sent from the client side to the server is independent and holds all the neccesary information required for the server to act on the request. No information on previous request is stored at the server. Allowing for scalability. REST APIs also allow for a number of authentication methods.
 
 - Breaking up the app into modules to follow best practices and it makes debugging much easier than trying to find an issue in a single code base with 1000 lines of code. Its easier to scale and maintain as well.
 
 - Error handling and Retires all done in the middleware, easier debugging.
+
+- I tried to focus on scalability which I feel is crucial for IoT systems as nodes can be increased as the system is upgraded so ensuring you have a scalable architecture will future proof your system and allow for easier integration of devices later.
 
 ## Challenges I faced
 
