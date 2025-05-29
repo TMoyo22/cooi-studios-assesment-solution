@@ -28,3 +28,15 @@
 2025-05-27 18:08:00 INFO [smart_iot] Received temperature 300.0ï¿½C from room1
 2025-05-27 18:08:00 INFO [smart_iot] Temperature 300.0ï¿½C in room1 exceeds threshold. Activating HVAC.
 2025-05-27 18:08:02 INFO [smart_iot] Sent HVAC command: activate
+2025-05-29 19:52:48 INFO [smart_iot] Middleware service started and subscribed to temperature topics.
+2025-05-29 19:54:03 INFO [smart_iot] Received temperature 21.0°C from room2
+2025-05-29 19:54:03 INFO [smart_iot] Temperature 21.0°C in room2 below threshold. Deactivating HVAC.
+2025-05-29 19:54:05 INFO [smart_iot] Sent HVAC command: deactivate
+2025-05-29 19:56:53 INFO [smart_iot] Received temperature 45.0°C from room3
+2025-05-29 19:56:53 INFO [smart_iot] Temperature 45.0°C in room3 exceeds threshold. Activating HVAC.
+2025-05-29 19:56:55 INFO [smart_iot] Sent HVAC command: activate
+2025-05-29 19:58:15 WARNING [smart_iot] Received out-of-range temperature -67.0°C from building/room3/temperature
+2025-05-29 19:58:42 WARNING [smart_iot] Thats not a proper temperature value, recieved from: building/room3/temperature: b't'
+2025-05-29 19:59:03 INFO [smart_iot] Received temperature 13.78°C from room3
+2025-05-29 19:59:03 INFO [smart_iot] Temperature 13.78°C in room3 below threshold. Deactivating HVAC.
+2025-05-29 19:59:05 INFO [smart_iot] Sent HVAC command: deactivate
